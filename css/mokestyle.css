@@ -1,0 +1,247 @@
+body,
+p {
+    color: #ffff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    background: url("/mokepon/img/putamadre.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    margin-bottom: 50px;
+    /* background: rgb(39, 39, 39); */
+
+}
+
+
+#seleccionar-mascota {
+    display: flex;
+    /*Esto permite darle espacio en la columna para que podamos ver los cambios que hacemos al centrar. Por defecto flex-direction column no deja espacio para justificar al centro. Elimina el 100 vh para ver que pasa!*/
+    flex-direction: column;   
+    align-items: center;
+}
+
+.titulo {
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px rgb(29, 29, 29),
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+    font-family: 'Oswald', sans-serif;
+    font-size: 8rem;
+    animation: flicker 1.5s infinite alternate;
+    color: #fff;
+    text-align: center;
+}
+
+@keyframes flicker {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+
+        text-shadow:
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px #fff,
+            0 0 40px #0fa,
+            0 0 80px #0fa,
+            0 0 90px #0fa,
+            0 0 100px #0fa,
+            0 0 150px #0fa;
+
+    }
+
+    20%,
+    24%,
+    55% {
+        text-shadow: none;
+    }
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    color: #ffff;
+    font-size: 1.2rem;
+}
+
+.subtitulo {
+    font-size: 3rem;
+}
+
+.tarjetas, .btn-ataques {
+    display: flex;
+    gap: 10px;
+}
+
+.tarjeta-de-mokepon {
+
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: xx-large;
+
+
+}
+
+.tarjeta-de-mokepon img {
+    width: 400px;
+    height: 400px;
+}
+
+.tarjeta-de-mokepon:active {
+    background: rgb(7, 222, 215);
+    border-radius: 100%;
+    box-shadow: 0 0 20px rgb(7, 222, 215);
+}
+
+.mascota-container {
+    position: relative;
+}
+
+.mascota {
+    position: absolute;
+    left: -63px;
+    bottom: -329px;
+    filter: drop-shadow(0px 10px 6px black);
+
+}
+
+.mascota img {
+    width: 130px;
+    height: 130px;
+
+}
+
+.mascota img:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out 0s;
+    filter: brightness(1.2);
+
+}
+
+label:hover {
+    color: aqua;
+    text-shadow: 0 0 20px rgb(7, 222, 215);
+}
+
+label:active {
+    color: #ffff;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 2em;
+}
+
+input[type=radio]:checked {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out 0s;
+    filter: brightness(1.2);
+}
+
+/*En el modelo de caja las propiedades de width y height le dan el tamaño a nuestro div. Cuando agregamos el padding o margin lo que hacemos el sumar esos valores a nuestro div por lo tanto el tamaño orignal se ve afectado por las cosas que vamos incoporando. Para evitar esto lo que podemos hacer es usar la propiedad box-sizing: border-box. Esto nos permite agregar padding y que el tamaño de width y height que pusimos no se vea afectado*/
+#btn-mascotas {
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    color: #ffff;
+    background: rgb(237, 56, 0);
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    box-sizing: border-box;
+    padding: 15px;
+    cursor: pointer;
+    width: 200px;
+}
+
+#btn-mascotas:hover {
+    background: rgb(255, 123, 0);
+}
+
+.nombre-mascota {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-ataque {
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    color: #ffff;
+    background: rgb(237, 56, 0);
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    box-sizing: border-box;
+    padding: 15px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.btn-ataque:hover {
+    background: rgb(255, 123, 0);
+}
+
+#btn-reiniciar {
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    color: #ffff;
+    background: rgb(237, 56, 0);
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    box-sizing: border-box;
+    padding: 15px;
+    cursor: pointer;
+    width: 200px;
+}
+
+#btn-reiniciar:hover {
+    background: rgb(255, 123, 0);
+}
+
+#seleccionar-ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mascotas {
+    display: flex;
+}
+.containerAtaques{
+    display: grid;
+    grid-template-columns: 150px 150px;
+    text-align: center;
+}
+
+@media (max-width:500px){
+    .tarjetas, .btn-ataques{
+        flex-direction: column;
+    }   
+    
+}
+.ataque-jugador, .ataque-enemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}

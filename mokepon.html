@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\mokestyle.css">
+    <!-- UNA BUENA PRACTICA PARA NO BLOQUEAR LA CARGA DEL DOCUMENTO HTML ES PONER EL SCRIPT SOURCE AL FINAL DEL BODY, ANTES DE LA ETIQUETA DE CIERRE -->
+    <title>Mokepon!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="seleccionar-mascota">
+        <h1 class="titulo">Mokepon!</h1>
+        <h2 class="subtitulo">Elige a tu mascota:</h2>
+        <div class="tarjetas">
+            <label class="tarjeta-de-mokepon" for="hipodoge">
+                <div class="mascota-container">
+                    <div class="mascota"><img src="img\mokepons_mokepon_hipodoge_attack.png" alt=""> </div>
+                </div>
+                <img src="img\bg.png" alt="">
+                <span class="nombre-mascota"><input type="radio" name="mascota" id="hipodoge" />Hipodoge</span>
+            </label>
+            <label class="tarjeta-de-mokepon" for="capipepo">
+                <div class="mascota-container">
+                    <div class="mascota"><img src="img\mokepons_mokepon_capipepo_attack.png" alt=""> </div>
+                </div>
+                <img src="img\bg.png" alt=""><span class="nombre-mascota"><input type="radio" name="mascota"
+                        id="capipepo" />Capipepo</span>
+            </label>
+            <label class="tarjeta-de-mokepon" for="ratigueya">
+                <div class="mascota-container">
+                    <div class="mascota"><img src="img\mokepons_mokepon_ratigueya_attack.png" alt=""> </div>
+                </div> <img src="img\bg.png" alt=""><span class="nombre-mascota"><input type="radio" name="mascota"
+                        id="ratigueya" />Ratigueya</span>
+            </label>
+        </div>
+        <button id="btn-mascotas">Seleccionar</button>
+    </section>
+    <section id="seleccionar-ataque">
+        <h1 class="titulo">Mokepon!</h1>
+        <h2 class="subtitulo">Elige tu ataque:</h2>
+        <div class="btn-ataques">
+            <button id="btn-fuego" class="btn-ataque">Fuego🔥</button>
+            <button id="btn-agua" class="btn-ataque">Agua💧</button>
+            <button id="btn-tierra" class="btn-ataque">Tierra🌼</button>
+        </div>
+        <section id="mascotas">
+        </section>
+        <div>
+            <section id="mensajes"></section>
+            <section id="reiniciar">
+                <button id="btn-reiniciar">Reiniciar</button>
+            </section>
+        </div>
+        <div>
+            <div class="containerAtaques">
+                <div class="container-jugador">
+                    <p id="mascota-jugador"></p>
+                    <p id="vidas-jugador">Vidas: 3</p>
+                    <div id="ataqueJugador"></div>
+                </div>
+                <div class="container-enemigo">
+                    <p id="mascota-enemigo"></p>
+                    <p id="vidas-enemigos">Vidas: 3</p>
+                    <div id="ataqueEnemigo"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js\script.js"></script>
+</body>
+</html>
