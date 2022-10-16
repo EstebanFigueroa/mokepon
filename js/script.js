@@ -9,9 +9,11 @@ const btnTierra = document.getElementById("btn-tierra");
 const btnReiniciar = document.getElementById("btn-reiniciar")
 //VARIABLES DE SeleccionarMascotaJugador()
 const ocultarMascota = document.getElementById("seleccionar-mascota");
-const hipo = document.getElementById("hipodoge").checked;
-const capi = document.getElementById("capipepo").checked;
-const rati = document.getElementById("ratigueya").checked;
+
+const hipo = document.getElementById("hipodoge");
+const capi = document.getElementById("capipepo");
+const rati = document.getElementById("ratigueya");
+
 const mascotaJugador = document.getElementById("mascota-jugador");
 //VARIABLES DE seleccionarMascotaEnemigo
 const mascotaEnemigo = document.getElementById("mascota-enemigo");
@@ -25,8 +27,11 @@ const enemigo = document.getElementById("ataqueEnemigo")
 //VARIABLES DE mensajeFinal()
 const sectionMensajesFinal = document.getElementById('mensajes')
 //
+const contenedor = document.getElementById("contenedorTarjetas")
+//
 let mokepones = []
 //
+
 let ataqueJugador; //Varibles globales para que las funciones puedan acceder desde fuera
 let ataqueEnemigo;
 let vidaEnemigo = 3;
@@ -39,17 +44,18 @@ let opcionDeMokepones // esta variable la vamos a usar para inyectar el HTML
 //Luego this para hacer referencia a las propiedades
 
 class Mokepon {
-    constructor(nombre, foto, vida) {
+    constructor(nombre, foto, vida, fotobg) {
         this.nombre = nombre
         this.foto = foto
+        this.fotobg = fotobg
         this.vida = vida
         this.ataques = []
     }
 }
 //Con new vamos a construir un objeto a partir de la clase Mokepon. Estos objetos son INSTANCIAS de la CLASE Mokepon
-let hipodoge = new Mokepon("Hipodoge", 'img\mokepons_mokepon_hipodoge_attack.png', 5)
-let capipepo = new Mokepon("Capipepo", 'img\mokepons_mokepon_capipepo_attack.png', 5)
-let ratigueya = new Mokepon("Ratigueya", 'img\mokepons_mokepon_ratigueya_attack.png', 5)
+let hipodoge = new Mokepon("Hipodoge", 'img/mokepons_mokepon_hipodoge_attack.png', 5, 'img/bg.png' )
+let capipepo = new Mokepon("Capipepo", 'img/mokepons_mokepon_capipepo_attack.png', 5, 'img/bg.png')
+let ratigueya = new Mokepon("Ratigueya", 'img/mokepons_mokepon_ratigueya_attack.png', 5, 'img/bg.png')
 
 hipodoge.ataques.push( //aca voy a construir un objeto literal, que vive dentro de este objeto
     { nombre: "💧", id: "btn-agua" },
@@ -78,8 +84,18 @@ mokepones.push(hipodoge, capipepo, ratigueya)
 function iniciarJuego() { //Este función se ejecuta cuando se carga el documento HTML, al final de este código está la función window load que contiene a iniciarJuego
     ocultarBtnReiniciar.style.display = "none"
     //vamos a iterar los arreglos
-    mokepones.forEach((mokepon)=>{
-        console.log(mokepon.nombres)
+    mokepones.forEach((mokepon) => {
+        opcionDeMokepones = `
+        <label class="tarjeta-de-mokepon" for=${mokepon.nombre}>
+            <div class="mascota-container">
+                <div class="mascota"><img src=${mokepon.foto} alt=""> </div>
+            </div>
+            <img src=${mokepon.fotobg} alt="">
+            <span class="nombre-mascota"><input type="radio" name="mascota" id=${mokepon.nombre}/>${mokepon.nombre}</span>
+        </label>
+        `
+        contenedor.innerHTML += opcionDeMokepones
+        console.log(contenedorTarjetas)
     })
     ocultarAtaque.style.display = "none";
     btnMascota.addEventListener('click', seleccionarMascotaJugador);
@@ -89,8 +105,9 @@ function iniciarJuego() { //Este función se ejecuta cuando se carga el document
     btnReiniciar.addEventListener("click", reiniciar);
 }
 function seleccionarMascotaJugador() { //En esta función verificamos que elección hizo el usuario en los inputs HTML con la propiedad .checked y lo almacenamos en una variable. Posteriormente disparamos un alert que verifica la elección del usuario a través de una verificación verdadero, falso.    
-    ocultarMascota.style.display = "none";
+    ocultarMascota.style.display = "none";    
     ocultarAtaque.style.display = "flex";
+
     if (hipo) {
         mascotaJugador.innerHTML = "Hipodoge";
     }
